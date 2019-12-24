@@ -179,7 +179,7 @@ function main() {
 
     let homeLink = document.createElement('a')
     homeLink.setAttribute('href', homeURL)
-    homeLink.innerText = 'Home'
+    homeLink.innerText = name
 
     let nav = document.createElement('nav')
     nav.id = 'new-nav'
