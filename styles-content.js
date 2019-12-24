@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.535
+// @version      0.536
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -147,6 +147,8 @@ function main() {
         border-radius: 24px;
     }`)
 
+    GM_addStyle('.none { display: none; }')
+
     // Set background for page to a nice gradient
     GM_addStyle('body { background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); }')
 
@@ -210,6 +212,11 @@ function main() {
     
     // TODO: Course and organization pages
     if (window.location.href.search('course_id=')) {
+        let temp = document.getElementById('d_bbDateTimePicker_date')
+        temp.classList.add('none')
+        document.querySelector('body').appendChild(temp)
+
+
         let pageContent = document.getElementById('content')
         let sidebar = document.getElementsByClassName('navPaletteContent')[0]
         document.getElementById('globalNavPageContentArea').innerHTML = ''
