@@ -131,8 +131,20 @@ function main() {
     GM_addStyle('#div_5_1 { flex-grow: 1; }')
     GM_addStyle('#div_1_1 { flex-grow: 1; }')
 
-    // GM_addStyle('#column0 { display: none; }')
+    // Hide old elements
     GM_addStyle('.locationPane, #globalNavPageNavArea table { display: none; }')
+    
+    // Modify how list items are displayed for classes and organizations
+    GM_addStyle(`.portletList-img.courseListing > li {
+        margin-top: 24px;
+        margin-bottom: 8px;
+        text-align: left;
+        padding: 0px 12px 0px 12px;
+    }`)
+    
+    // Generic CSS
+    GM_addStyle('.flex { display: flex; }')
+    
     GM_addStyle(`.card {
         text-align: center;
         margin: 12px;
@@ -143,15 +155,7 @@ function main() {
         border-radius: 24px;
     }`)
 
-    GM_addStyle(`.portletList-img.courseListing > li {
-        margin-top: 24px;
-        margin-bottom: 8px;
-        text-align: left;
-        padding: 0px 12px 0px 12px;
-    }`)
-
-    GM_addStyle('.flex { display: flex; }')
-
+    // Set background for page to a nice gradient
     GM_addStyle('body { background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); }')
 
     // Remove quick links
@@ -178,7 +182,19 @@ function main() {
     homeLink.innerText = 'Home'
 
     let nav = document.createElement('nav')
+    nav.id = 'new-nav'
     nav.appendChild(homeLink)
+
+    GM_addStyle(`#new-nav {
+        height: 100px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }`)
+
+    GM_addStyle(`#new-nav > a {
+        color: black;
+    }`)
 
     document.getElementById('globalNavPageNavArea').appendChild(nav)
 
