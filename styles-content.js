@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.522
+// @version      0.523
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
