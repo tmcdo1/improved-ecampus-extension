@@ -54,6 +54,7 @@ async function getCourseOrgObjects(serviceLevel) {
 }
 
 async function getUpdateAndGradeCount() {
+    // TODO: Update to grab the sessionId, etc for the "body"
     let response = await fetch("https://tamu.blackboard.com/webapps/portal/dwr_open/call/plaincall/ToolActivityService.getActivityForAllTools.dwr", {
         "credentials": "include",
         "headers": {
@@ -72,7 +73,7 @@ async function getUpdateAndGradeCount() {
     let objectString = await response.text()
     objectString = /\{.*\}/g.exec(objectString)[0]
     let jsonStr = objectString.replace(new RegExp("'", 'g'), '"')
-    
+    // TODO: add quotes around the keys
     return JSON.parse(jsonStr)
 }
 
@@ -112,20 +113,7 @@ function main() {
     
     runAsyncActions()
 
-    //  Remove Tools and Report Card
     
-
-    let coursePanel = document.getElementById('div_4_1')
-    let orgPanel = document.getElementById('div_5_1')
-    let announcementPanel = document.getElementById('div_1_1')
-
-    coursePanel.classList.add('card')
-    coursePanel.classList.add('base1')
-    orgPanel.classList.add('card')
-    orgPanel.classList.add('base1')
-    announcementPanel.classList.add('card')
-    announcementPanel.classList.add('base1')
-
     GM_addStyle('.base1 { flex-basis: 1px; }')
     GM_addStyle('#div_4_1 { flex-grow: 2; }')
     GM_addStyle('#div_5_1 { flex-grow: 1; }')
@@ -161,13 +149,7 @@ function main() {
     // Remove quick links
     GM_addStyle('#quick_links_wrap { display: none; }')
 
-    let dashboard = document.createElement('div')
-    dashboard.classList.add('flex')
-    dashboard.appendChild(coursePanel)
-    dashboard.appendChild(orgPanel)
-    dashboard.appendChild(announcementPanel)
-
-    document.getElementById('globalNavPageContentArea').appendChild(dashboard)
+    
 
     // Header 
     GM_addStyle(`#topFrame, .bgBanner {
@@ -197,6 +179,29 @@ function main() {
     }`)
 
     document.getElementById('globalNavPageNavArea').appendChild(nav)
+
+    //  Home Page modifications
+    if (window.location.href == homeURL) {
+        let coursePanel = document.getElementById('div_4_1')
+        let orgPanel = document.getElementById('div_5_1')
+        let announcementPanel = document.getElementById('div_1_1')
+    
+        coursePanel.classList.add('card')
+        coursePanel.classList.add('base1')
+        orgPanel.classList.add('card')
+        orgPanel.classList.add('base1')
+        announcementPanel.classList.add('card')
+        announcementPanel.classList.add('base1')
+
+        let dashboard = document.createElement('div')
+        dashboard.classList.add('flex')
+        dashboard.appendChild(coursePanel)
+        dashboard.appendChild(orgPanel)
+        dashboard.appendChild(announcementPanel)
+
+        document.getElementById('globalNavPageContentArea').appendChild(dashboard)
+
+    }
 
 }
 
