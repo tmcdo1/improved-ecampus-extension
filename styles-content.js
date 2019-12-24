@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.537
+// @version      0.538
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -156,7 +156,7 @@ function main() {
     GM_addStyle('#quick_links_wrap { display: none; }')
 
     // Hide old elements
-    GM_addStyle('.locationPane, #globalNavPageNavArea table { display: none; }')
+    GM_addStyle('#globalNavPageNavArea table { display: none; }')
 
     // Header 
     GM_addStyle(`#topFrame, .bgBanner {
@@ -207,6 +207,8 @@ function main() {
         dashboard.appendChild(announcementPanel)
         
         document.getElementById('globalNavPageContentArea').appendChild(dashboard)
+
+        document.getElementsByClassName('locationPane')[0].classList.add('none')
         
     }
     
