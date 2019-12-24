@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.5
+// @version      0.51
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -132,7 +132,6 @@ function main() {
         background: white;
         max-width: 700px;
         padding: 12px;
-        /* border: 1px solid blue; */
     }`)
 
     let dashboard = document.createElement('div')
