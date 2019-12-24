@@ -152,7 +152,7 @@ function main() {
 
     GM_addStyle('.flex { display: flex; }')
 
-    GM_addStyle('#globalNavPageContentArea { background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); }')
+    GM_addStyle('body { background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); }')
 
     // Remove quick links
     GM_addStyle('#quick_links_wrap { display: none; }')
