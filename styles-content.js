@@ -101,7 +101,8 @@ async function runAsyncActions() {
 
 function main() {
     let name = document.getElementById('global-nav-link').childNodes[1].nodeValue.trim()
-    let homeURL = document.getElementById('eCampus').children[0].baseURI
+    // let homeURL = document.getElementById('eCampus').children[0].baseURI
+    let homeURL = 'https://tamu.blackboard.com/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_25_1'
 
     // let gradeAtag = document.getElementById('MyGradesOnMyBb_____MyGradesTool')
     let gradeURL = '/webapps/bb-social-learning-BBLEARN/execute/mybb?cmd=display&toolId=MyGradesOnMyBb_____MyGradesTool'
@@ -118,9 +119,6 @@ function main() {
     GM_addStyle('#div_4_1 { flex-grow: 2; }')
     GM_addStyle('#div_5_1 { flex-grow: 1; }')
     GM_addStyle('#div_1_1 { flex-grow: 1; }')
-
-    // Hide old elements
-    GM_addStyle('.locationPane, #globalNavPageNavArea table { display: none; }')
     
     // Modify how list items are displayed for classes and organizations
     GM_addStyle(`.portletList-img.courseListing > li {
@@ -149,7 +147,8 @@ function main() {
     // Remove quick links
     GM_addStyle('#quick_links_wrap { display: none; }')
 
-    
+    // Hide old elements
+    GM_addStyle('.locationPane, #globalNavPageNavArea table { display: none; }')
 
     // Header 
     GM_addStyle(`#topFrame, .bgBanner {
