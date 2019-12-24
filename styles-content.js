@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.531
+// @version      0.532
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -207,6 +207,25 @@ function main() {
         document.getElementById('globalNavPageContentArea').appendChild(dashboard)
 
     }
+
+    // TODO: Course and organization pages
+    if (window.location.href.search('course_id=')) {
+        let pageContent = document.getElementById('content')
+        let sidebar = document.getElementsByClassName('navPaletteContent')
+
+        pageContent.classList.add('card')
+        sidebar.classList.add('card')
+
+        let classDash = document.createElement('div')
+        classDash.appendChild(sidebar)
+        classDash.appendChild(pageContent)
+
+        document.getElementById('globalNavPageContentArea')
+    }
+
+    // TODO: Grade page
+
+    // TODO: Updates page
 
 }
 
