@@ -132,7 +132,7 @@ function main() {
     GM_addStyle('#div_1_1 { flex-grow: 1; }')
 
     // GM_addStyle('#column0 { display: none; }')
-    GM_addStyle('.locationPane #globalNavPageNavArea:first-child { display: none; }')
+    GM_addStyle('.locationPane, #globalNavPageNavArea:first-child { display: none; }')
     GM_addStyle(`.card {
         text-align: center;
         margin: 12px;
@@ -163,6 +163,13 @@ function main() {
     document.getElementById('globalNavPageContentArea').appendChild(dashboard)
 
     // Header 
+    GM_addStyle(`#topFrame, .bgBanner {
+        background-color:transparent;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }`)
+
     let homeLink = document.createElement('a')
     homeLink.setAttribute('href', homeURL)
 
