@@ -73,6 +73,10 @@ async function getUpdateAndGradeCount() {
     let objectString = await response.text()
     objectString = /\{.*\}/g.exec(objectString)[0]
 
+    if (objectString.search('Error')) {
+        objectString = sessionStorage.tool_activity
+    }
+
     eval(`responseObject = ${objectString}`)
     console.log(responseObject)
     return responseObject
