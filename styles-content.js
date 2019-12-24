@@ -119,8 +119,21 @@ function main() {
     let orgPanel = document.getElementById('div_5_1')
     let announcementPanel = document.getElementById('div_1_1')
 
+    coursePanel.classList.add('card')
+    orgPanel.classList.add('card')
+    announcementPanel.classList.add('card')
+
     // GM_addStyle('#column0 { display: none; }')
     GM_addStyle('.locationPane { display: none; }')
+    GM_addStyle(`.card {
+        text-align: center;
+        margin: 12px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        background: white;
+        max-width: 700px;
+        padding: 12px;
+        /* border: 1px solid blue; */
+    }`)
 
     let dashboard = document.createElement('div')
     dashboard.appendChild(coursePanel)
