@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.52
+// @version      0.521
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -132,7 +132,7 @@ function main() {
     GM_addStyle('#div_1_1 { flex-grow: 1; }')
 
     // GM_addStyle('#column0 { display: none; }')
-    GM_addStyle('.locationPane, #globalNavPageNavArea:first-child { display: none; }')
+    GM_addStyle('.locationPane, #globalNavPageNavArea table { display: none; }')
     GM_addStyle(`.card {
         text-align: center;
         margin: 12px;
@@ -172,6 +172,7 @@ function main() {
 
     let homeLink = document.createElement('a')
     homeLink.setAttribute('href', homeURL)
+    homeLink.innerText = 'Home'
 
     let nav = document.createElement('nav')
     nav.appendChild(homeLink)
