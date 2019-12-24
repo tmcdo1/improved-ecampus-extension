@@ -154,6 +154,9 @@ function main() {
 
     GM_addStyle('#globalNavPageContentArea { background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); }')
 
+    // Remove quick links
+    GM_addStyle('#quick_links_wrap { display: none; }')
+
     let dashboard = document.createElement('div')
     dashboard.classList.add('flex')
     dashboard.appendChild(coursePanel)
