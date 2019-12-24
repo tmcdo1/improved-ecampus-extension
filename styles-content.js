@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.528
+// @version      0.529
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -73,7 +73,7 @@ async function getUpdateAndGradeCount() {
     let objectString = await response.text()
     objectString = /\{.*\}/g.exec(objectString)[0]
 
-    eval(`responseObject = ${jsonStr}`)
+    eval(`responseObject = ${objectString}`)
     console.log(responseObject)
     return responseObject
 }
