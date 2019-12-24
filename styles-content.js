@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.534
+// @version      0.535
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -190,34 +190,33 @@ function main() {
         let coursePanel = document.getElementById('div_4_1')
         let orgPanel = document.getElementById('div_5_1')
         let announcementPanel = document.getElementById('div_1_1')
-    
+        
         coursePanel.classList.add('card')
         coursePanel.classList.add('base1')
         orgPanel.classList.add('card')
         orgPanel.classList.add('base1')
         announcementPanel.classList.add('card')
         announcementPanel.classList.add('base1')
-
+        
         let dashboard = document.createElement('div')
         dashboard.classList.add('flex')
         dashboard.appendChild(coursePanel)
         dashboard.appendChild(orgPanel)
         dashboard.appendChild(announcementPanel)
-
-
-        document.getElementById('globalNavPageContentArea').innerHTML = ''
+        
         document.getElementById('globalNavPageContentArea').appendChild(dashboard)
-
+        
     }
-
+    
     // TODO: Course and organization pages
     if (window.location.href.search('course_id=')) {
         let pageContent = document.getElementById('content')
         let sidebar = document.getElementsByClassName('navPaletteContent')[0]
-
+        document.getElementById('globalNavPageContentArea').innerHTML = ''
+        
         pageContent.classList.add('card')
         sidebar.classList.add('card')
-
+        
         let classDash = document.createElement('div')
         classDash.appendChild(sidebar)
         classDash.appendChild(pageContent)
