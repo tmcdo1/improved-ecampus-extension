@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.524
+// @version      0.525
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -74,6 +74,8 @@ async function getUpdateAndGradeCount() {
     objectString = /\{.*\}/g.exec(objectString)[0]
     let jsonStr = objectString.replace(new RegExp("'", 'g'), '"')
     // TODO: add quotes around the keys
+
+    console.log(Object.prototype.valueOf(jsonStr))
     return JSON.parse(jsonStr)
 }
 
@@ -84,6 +86,7 @@ async function runAsyncActions() {
     
     getCourseOrgObjects('FULL').then(courses => {
         //  Add courses to dropdown
+        console.log('Courses:', courses)
 
     }).catch(onError)
 
