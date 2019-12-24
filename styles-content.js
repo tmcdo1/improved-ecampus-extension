@@ -120,8 +120,16 @@ function main() {
     let announcementPanel = document.getElementById('div_1_1')
 
     coursePanel.classList.add('card')
+    coursePanel.classList.add('base1')
     orgPanel.classList.add('card')
+    orgPanel.classList.add('base1')
     announcementPanel.classList.add('card')
+    announcementPanel.classList.add('base1')
+
+    GM_addStyle('.base1 { flex-basis: 1px; }')
+    GM_addStyle('#div_4_1 { flex-grow: 2; }')
+    GM_addStyle('#div_5_1 { flex-grow: 1; }')
+    GM_addStyle('#div_1_1 { flex-grow: 1; }')
 
     // GM_addStyle('#column0 { display: none; }')
     GM_addStyle('.locationPane { display: none; }')
@@ -132,9 +140,22 @@ function main() {
         background: white;
         max-width: 700px;
         padding: 12px;
+        border-radius: 24px;
     }`)
 
+    GM_addStyle(`.portletList-img.courseListing > li {
+        margin-top: 24px;
+        margin-bottom: 8px;
+        text-align: left;
+        padding: 0px 12px 0px 12px;
+    }`)
+
+    GM_addStyle('.flex { display: flex; }')
+
+    GM_addStyle('#globalNavPageContentArea { background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); }')
+
     let dashboard = document.createElement('div')
+    dashboard.classList.add('flex')
     dashboard.appendChild(coursePanel)
     dashboard.appendChild(orgPanel)
     dashboard.appendChild(announcementPanel)
