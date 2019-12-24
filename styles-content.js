@@ -2,7 +2,7 @@
 // @name         Blackboard: simplification
 // @namespace    http://tmcd.me/
 // @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
-// @version      0.532
+// @version      0.533
 // @description  Remove excessive content
 // @author       Thomas McDonald
 // @match        https://tamu.blackboard.com/webapps/*
@@ -211,7 +211,7 @@ function main() {
     // TODO: Course and organization pages
     if (window.location.href.search('course_id=')) {
         let pageContent = document.getElementById('content')
-        let sidebar = document.getElementsByClassName('navPaletteContent')
+        let sidebar = document.getElementsByClassName('navPaletteContent')[0]
 
         pageContent.classList.add('card')
         sidebar.classList.add('card')
