@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         Blackboard: simplification
+// @namespace    http://tmcd.me/
+// @downloadURL  https://raw.githubusercontent.com/tmcdo1/improved-ecampus-extension/master/styles-content.js
+// @version      0.5
+// @description  Remove excessive content
+// @author       Thomas McDonald
+// @match        https://tamu.blackboard.com/webapps/*
+// @grant        GM_addStyle
+// ==/UserScript==
+
 function eventFire(el, etype){
     if (el.fireEvent) {
         el.fireEvent('on' + etype);
